@@ -29,6 +29,7 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	implementation 'commons-codec:commons-codec:1.14'
 }
 
 test {
