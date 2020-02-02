@@ -30,6 +30,7 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	implementation 'commons-codec:commons-codec:1.14'
+	implementation 'org.apache.httpcomponents:httpclient:4.5.11'
 }
 
 test {
