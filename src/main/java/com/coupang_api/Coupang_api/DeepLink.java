@@ -9,6 +9,7 @@ import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
 
+import static com.coupang_api.Coupang_api.OpenApiTestApplication.total_str;
 import static com.coupang_api.Secret_Key_cls.ACCESS_KEY;
 import static com.coupang_api.Secret_Key_cls.SECRET_KEY;
 import static com.coupang_api.String_store.High_end_cpu;
@@ -21,6 +22,7 @@ public class DeepLink {
     private final static String URL = "/v2/providers/affiliate_open_api/apis/openapi/deeplink";
     // Replace with your own ACCESS_KEY and SECRET_KEY
 
+//    private final static String REQUEST_JSON = "{\"coupangUrls\": [\"https://www.coupang.com/np/search?component=&q=good&channel=user\",\"https://www.coupang.com/np/coupangglobal\"]}";
     private final static String REQUEST_JSON = High_end_cpu;
 
     // TODO deepLink url을  내 id url로 변경
@@ -68,7 +70,8 @@ public class DeepLink {
 
         for(int i=0; i < personArray.size(); i++) {
             JSONObject personObject = (JSONObject) personArray.get(i);
-            System.out.println(personObject.get("shortenUrl"));
+            total_str = total_str+personObject.get("shortenUrl")+"\n";
+//            System.out.println(personObject.get("shortenUrl"));
         }
 
         return "good";
@@ -76,9 +79,13 @@ public class DeepLink {
 
     public static String make_request_json_20(String[] str_arr){
         String str_result ="";
-        for(int i =0; i<20;i++){
-            str_result = "\"https://www.coupang.com/np/search?component=&q="+str_arr[i]+"\"";
+        System.out.println(str_arr.length);
+        for(int i =0; i<str_arr.length;i++){
+            str_result = str_result + "\"https://www.coupang.com/np/search?component=&q="+str_arr[i]+"\",";
         }
+
+        // 마지막 콤마 지워주기.
+        str_result= str_result.substring(0, str_result.length()-1);
 
         return "{\"coupangUrls\":[" +str_result+ "]}";
     }

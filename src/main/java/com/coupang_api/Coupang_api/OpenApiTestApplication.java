@@ -30,28 +30,45 @@ import static com.coupang_api.Secret_Key_cls.SECRET_KEY;
 import static com.coupang_api.String_store.High_end_cpu;
 
 public class OpenApiTestApplication {
-
+    public static String total_str;
 
 
     public static void main(String[] args) throws IOException, ParseException {
+
+        total_str ="";
+
+
         String[] split_str = High_end_cpu.split("\\n");
 
         // note 1. 큐에 넣어서 2. 20개씩 나눠서 요청하기.
             // note 1.큐 삽입
-        Queue<String> que = new LinkedList();
+        Queue<String> que = new LinkedList<String>();
 
         for(int i=0; i<split_str.length;i++){
+            //split_str[i]= split_str[i].replace(" ","+");
             que.offer(split_str[i]);
         }
             // note 2. 큐 20개씩 나눠서 deeplink 요청
-        String[] temp_str= new String[20];
+        String[] temp_str;
+
         while(!que.isEmpty()) {
-            for(int i =0; i<20 || !que.isEmpty();i++){
-                temp_str[i] = que.poll();
+            if(que.size()>=20){
+                temp_str= new String[20];
+            }else {
+                temp_str= new String[que.size()];
             }
+
+            //System.out.println(que.size());
+
+            for(int i =0; i<temp_str.length;i++){
+                temp_str[i] = que.poll();
+//                System.out.println(temp_str[i]);
+            }
+//            System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
             deepLink(make_request_json_20(temp_str));
         }
 
+        System.out.println(total_str);
 
 
 //        deepLink(High_end_cpu);
