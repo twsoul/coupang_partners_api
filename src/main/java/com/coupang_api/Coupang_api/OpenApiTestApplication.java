@@ -1,5 +1,6 @@
 package com.coupang_api.Coupang_api;
 
+import com.coupang_api.CoupangApiWebApplication;
 import com.coupang_api.Secret_Key_cls;
 import org.apache.http.NameValuePair;
 import org.apache.http.entity.StringEntity;
@@ -15,6 +16,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.springframework.boot.SpringApplication;
 
 
 import java.io.IOException;
@@ -34,21 +36,25 @@ public class OpenApiTestApplication {
 
 
     public static void main(String[] args) throws IOException, ParseException {
+        SpringApplication.run(OpenApiTestApplication.class, args);
 
+    }
+
+    private void Convert_myLink()throws IOException, ParseException{
         total_str ="";
 
 
         String[] split_str = High_end_cpu.split("\\n");
 
-        // note 1. 큐에 넣어서 2. 20개씩 나눠서 요청하기.
-            // note 1.큐 삽입
+        // note  큐에 넣어서  20개씩 나눠서 요청하기.
+        // note 1. 큐 삽입
         Queue<String> que = new LinkedList<String>();
 
         for(int i=0; i<split_str.length;i++){
             //split_str[i]= split_str[i].replace(" ","+");
             que.offer(split_str[i]);
         }
-            // note 2. 큐 20개씩 나눠서 deeplink 요청
+        // note 2. 큐 20개씩 나눠서 deeplink 요청
         String[] temp_str;
 
         while(!que.isEmpty()) {
@@ -69,9 +75,6 @@ public class OpenApiTestApplication {
         }
 
         System.out.println(total_str);
-
-
-//        deepLink(High_end_cpu);
 
     }
 
