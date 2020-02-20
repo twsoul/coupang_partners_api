@@ -78,6 +78,43 @@ public class OpenApiTestApplication {
 
     }
 
+    public static String deepLink_total(String search_str) throws IOException, ParseException {
+        total_str ="";
+
+
+        String[] split_str = search_str.split("\\n");
+
+        // note  큐에 넣어서  20개씩 나눠서 요청하기.
+        // note 1. 큐 삽입
+        Queue<String> que = new LinkedList<String>();
+
+        for(int i=0; i<split_str.length;i++){
+            //split_str[i]= split_str[i].replace(" ","+");
+            que.offer(split_str[i]);
+        }
+        // note 2. 큐 20개씩 나눠서 deeplink 요청
+        String[] temp_str;
+
+        while(!que.isEmpty()) {
+            if(que.size()>=20){
+                temp_str= new String[20];
+            }else {
+                temp_str= new String[que.size()];
+            }
+
+            //System.out.println(que.size());
+
+            for(int i =0; i<temp_str.length;i++){
+                temp_str[i] = que.poll();
+//                System.out.println(temp_str[i]);
+            }
+//            System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
+            deepLink(make_request_json_20(temp_str));
+        }
+
+        return total_str;
+    }
+
 
 //    public static String coupang_api_answer(String request_method, String url_tpye, String access_key, String secret_key, String request_json, String subId) throws IOException {
 //        String BaseUrl = "https://api-gateway.coupang.com";

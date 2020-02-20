@@ -34,6 +34,8 @@ dependencies {
 	// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
 	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 
+	implementation 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
+
 }
 
 test {
