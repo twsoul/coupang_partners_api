@@ -82,7 +82,7 @@ public class OpenApiTestApplication {
         total_str ="";
 
 
-        String[] split_str = search_str.split("\\n");
+        String[] split_str = search_str.split("\\r\\n");
 
         // note  큐에 넣어서  20개씩 나눠서 요청하기.
         // note 1. 큐 삽입

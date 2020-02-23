@@ -29,12 +29,19 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+
+
 	implementation 'commons-codec:commons-codec:1.14'
 	implementation 'org.apache.httpcomponents:httpclient:4.5.11'
 	// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
 	implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 
 	implementation 'pl.allegro.tech.boot:handlebars-spring-boot-starter:0.3.0'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'junit:junit:4.12'
+	implementation 'junit:junit:4.12'
+// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-thymeleaf
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-thymeleaf', version: '2.2.4.RELEASE'
 
 }
 

@@ -15,15 +15,23 @@ import java.io.IOException;
 @AllArgsConstructor
 public class WebController {
     @GetMapping("/")
-    public String main() {
+    public String main(Model model) {
+        model.addAttribute("msg","test");
         return "main";
     }
 
     @PostMapping("/")
     public String request_deep(@RequestParam("_search")String search_Str, Model model) throws IOException, ParseException {
 
-//        String result = OpenApiTestApplication.deepLink_total(search_Str);
-        model.addAttribute("_result","test");
+        if (search_Str.isEmpty()|| search_Str.equals("")){
+
+        }else{
+            String result = OpenApiTestApplication.deepLink_total(search_Str);
+            model.addAttribute("_result1",result);
+        }
+
+//        model.addAttribute("_result","test");
+//        model.addAttribute("_result1",result);
 
         return "main";
     }

@@ -1,6 +1,8 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   </head>
 
@@ -10,11 +12,12 @@
     <h1>내 링크로 바꿔주기</h1>
     <div>
     <form method="POST" action="/">
-        <span><textarea name="_search" cols="50" rows="20"></textarea></span>
+        <span><textarea name="_search" cols="50" rows="20" th:value="${_result1}"></textarea></span>
         <span><input type="submit" value="Submit"></span>
     </form>
-        <span><textarea name="_result" cols="50" rows="20"></textarea></span>
-
+    <span><textarea name="_result" cols="50" rows="20" th:text="${_result1}">${_result1}</textarea></span>
+    <span><text name="_result_txt" th:text="${_result}"></text></span>
+    <p th:text="${msg}">wait</p>
     </div>
 </body>
 </html>

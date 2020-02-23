@@ -14,7 +14,7 @@ import static com.coupang_api.Secret_Key_cls.ACCESS_KEY;
 import static com.coupang_api.Secret_Key_cls.SECRET_KEY;
 import static com.coupang_api.String_store.High_end_cpu;
 
-public class DeepLink {
+public class    DeepLink {
 
     private final static String REQUEST_METHOD = "POST";
     private final static String DOMAIN = "https://api-gateway.coupang.com";
@@ -68,11 +68,18 @@ public class DeepLink {
 
         JSONArray personArray = (JSONArray) jsonObj.get("data");
 
-        for(int i=0; i < personArray.size(); i++) {
-            JSONObject personObject = (JSONObject) personArray.get(i);
-            total_str = total_str+personObject.get("shortenUrl")+"\n";
+        try {
+            for(int i=0; i < personArray.size(); i++) {
+                JSONObject personObject = (JSONObject) personArray.get(i);
+                total_str = total_str+personObject.get("shortenUrl")+"\n";
 //            System.out.println(personObject.get("shortenUrl"));
+            }
+        }catch (NullPointerException e){
+            return String.valueOf(e);
         }
+
+
+
 
         return "good";
     }

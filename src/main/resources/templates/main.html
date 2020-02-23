@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+  <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+      <link rel="stylesheet" href="../css/bootstrap.css"/>
+      <link rel="stylesheet" href="../css/design_coupang.css"/>
+      <script type="text/javascript" src="./js/bootstrap.js"></script>
+  </head>
+
+<body>
+
+
+<h1 style="margin-left:30px;color:#24695e">쿠팡 파트너스 api 활용 기능</h1>
+    <div>
+        <h2 style="margin-left:30px;color:#24695e">검색어를 입력하시면 </h2>
+        <div>
+            <form method="POST" action="/">
+
+                <span><textarea name="_search" cols="50" rows="20" ></textarea></span>
+                <span><input type="submit" value="변환하기"></span>
+            </form>
+        </div>
+        <div style="float:left">
+            <span><textarea name="_result" cols="50" rows="20" th:text="${_result1}">여기에 링크가 표시됩니다.</textarea></span>
+        </div>
+
+    </div>
+</body>
+</html>
