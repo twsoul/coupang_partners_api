@@ -8,6 +8,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.IOException;
+import java.util.Random;
 
 import static com.coupang_api.Coupang_api.OpenApiTestApplication.total_str;
 import static com.coupang_api.Secret_Key_cls.ACCESS_KEY;
@@ -25,9 +26,21 @@ public class    DeepLink {
 //    private final static String REQUEST_JSON = "{\"coupangUrls\": [\"https://www.coupang.com/np/search?component=&q=good&channel=user\",\"https://www.coupang.com/np/coupangglobal\"]}";
     private final static String REQUEST_JSON = High_end_cpu;
 
+
     // TODO deepLink url을  내 id url로 변경
-    public static String deepLink(String reauest_json) throws IOException, ParseException {
-        String authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, SECRET_KEY, ACCESS_KEY);
+    public static String deepLink(String reauest_json, String access_key,String screte_key) throws IOException, ParseException {
+        String authorization = null;
+        // 수수료 10% 내 링크 로직
+        Random random = new Random();
+        int mylink = random.nextInt(100);
+        if (mylink<10){
+            authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, screte_key, access_key);
+        }else{
+            authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, SECRET_KEY, ACCESS_KEY);
+        }
+
+
+
 
         // Send request
         StringEntity entity = new StringEntity(reauest_json, "UTF-8");

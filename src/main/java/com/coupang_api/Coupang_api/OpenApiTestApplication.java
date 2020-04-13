@@ -17,6 +17,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 import java.io.IOException;
@@ -71,18 +72,17 @@ public class OpenApiTestApplication {
 //                System.out.println(temp_str[i]);
             }
 //            System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-            deepLink(make_request_json_20(temp_str));
+            deepLink(make_request_json_20(temp_str),"","");
         }
 
         System.out.println(total_str);
 
     }
 
-    public static String deepLink_total(String search_str) throws IOException, ParseException {
+    public static String deepLink_total(String search_str, String ACCESS_KEY, String SECRET_KEY) throws IOException, ParseException {
         total_str ="";
 
-        // ssd/hdd 이름중 큰따옴표 포함된게 있어서 제거
-       search_str = search_str.replaceAll("\\\"","");
+
         String[] split_str = search_str.split("\\r\\n");
 
         // note  큐에 넣어서  20개씩 나눠서 요청하기.
@@ -110,7 +110,7 @@ public class OpenApiTestApplication {
 //                System.out.println(temp_str[i]);
             }
 //            System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-            deepLink(make_request_json_20(temp_str));
+            deepLink(make_request_json_20(temp_str),ACCESS_KEY,SECRET_KEY);
         }
 
         return total_str;

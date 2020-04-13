@@ -6,3 +6,30 @@ div{
 textarea{
     background-color: #24695e;
 }
+/*
+nav{ background-color :#ea5e60 }
+nav ul{
+    position:relative;
+    margin:0px;
+    padding:0px;}
+ul li{display: inline;} */
+
+
+body { margin: 0; /*body의 바깥 여백을 없앰으로서 내비게이션 바가 페이지에 바짝 붙게 함*/ }
+.nav-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0; /*쓸 데 없는 공백 제거*/
+    padding: 0; /*쓸 데 없는 공백 제거*/
+    background-color: darkslategrey;
+    list-style-type: none; /*목록 기호 제거*/ }
+
+.nav-item {
+    padding: 15px;
+    cursor: pointer; /*마우스 커서를 pointer 모양으로 함*/ }
+
+.nav-item a { /*nav-item 클래스 아래의 a 요소를 선택함*/
+    text-align: center;
+    text-decoration: none; /*밑줄 없앰*/
+    color: white; }

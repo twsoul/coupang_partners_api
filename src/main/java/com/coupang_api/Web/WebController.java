@@ -21,12 +21,16 @@ public class WebController {
     }
 
     @PostMapping("/")
-    public String request_deep(@RequestParam("_search")String search_Str, Model model) throws IOException, ParseException {
+    public String request_deep(
+            @RequestParam("_search")String search_Str,
+            @RequestParam("_secret_key")String SECRET_KEY,
+            @RequestParam("_access_key")String ACCESS_KEY
+            ,Model model) throws IOException, ParseException {
 
         if (search_Str.isEmpty()|| search_Str.equals("")){
 
         }else{
-            String result = OpenApiTestApplication.deepLink_total(search_Str);
+            String result = OpenApiTestApplication.deepLink_total(search_Str,ACCESS_KEY,SECRET_KEY);
             model.addAttribute("_result1",result);
         }
 
