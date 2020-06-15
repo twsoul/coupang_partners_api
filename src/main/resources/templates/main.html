@@ -30,23 +30,33 @@ textarea{
 <h1 style="margin-left:30px;color:#24695e">쿠팡 파트너스 api 활용 기능</h1>
     <div>
         <h2>쿠팡 파트너스 api 대량 링크 바꿔주기</h2>
-        <h2>API 키</h2>
-        <form method="POST" action="/">
-            <p><span>Access Key  <input name="_access_key" type="text" style="width:50%"/></span></p>
-            <p><span>Secret Key  <input name="_secret_key" type="text" style="width:50%"/></span></p>
-        </form>
-        <h2 style="margin-left:30px;color:#24695e">검색어 입력</h2>
+
+<!--        <form method="POST" action="/">-->
+<!--            <p><span>Access Key  <input name="_access_key" type="text" style="width:50%"/></span></p>-->
+<!--            <p><span>Secret Key  <input name="_secret_key" type="text" style="width:50%"/></span></p>-->
+<!--        </form>-->
+
 
         <div>
             <form method="POST" action="/">
+                <h2>API 키</h2>
+                <p><span>Access Key  <textarea name="_access_key" type="text" style="width:50%" th:text="${_access_key}" /></span></p>
+                <p><span>Secret Key  <textarea name="_secret_key" type="text" style="width:50%" th:text="${_secret_key}" /></span></p>
 
-                <span><textarea name="_search" cols="50" rows="20" ></textarea></span>
-                <span><input type="submit" value="변환하기"></span>
+               <div>
+                   <h2 style="margin-left:30px;color:#24695e">검색어 입력</h2>
+                   <span><textarea name="_search" cols="50" rows="20" ></textarea></span>
+                   <span><input type="submit" value="변환하기"></span>
+
+                       <span><textarea name="_result" cols="50" rows="20" th:text="${_result1}">여기에 링크가 표시됩니다.</textarea></span>
+
+               </div>
+
             </form>
         </div>
-        <div style="float:left">
-            <span><textarea name="_result" cols="50" rows="20" th:text="${_result1}">여기에 링크가 표시됩니다.</textarea></span>
-        </div>
+<!--        <div style="float:left">-->
+<!--            <span><textarea name="_result" cols="50" rows="20" th:text="${_result1}">여기에 링크가 표시됩니다.</textarea></span>-->
+<!--        </div>-->
 
     </div>
 </body>
