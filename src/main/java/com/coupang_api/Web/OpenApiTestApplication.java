@@ -1,37 +1,19 @@
-package com.coupang_api.Coupang_api;
+package com.coupang_api.Web;
 
-import com.coupang_api.CoupangApiWebApplication;
-import com.coupang_api.Secret_Key_cls;
-import org.apache.http.NameValuePair;
-import org.apache.http.entity.StringEntity;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.apache.http.HttpHost;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.methods.RequestBuilder;
-import org.apache.http.impl.client.HttpClientBuilder;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 import static com.coupang_api.Coupang_api.DeepLink.deepLink;
 import static com.coupang_api.Coupang_api.DeepLink.make_request_json_20;
-import static com.coupang_api.Secret_Key_cls.ACCESS_KEY;
-import static com.coupang_api.Secret_Key_cls.SECRET_KEY;
 import static com.coupang_api.String_store.High_end_cpu;
 
+@SpringBootApplication
 public class OpenApiTestApplication {
     public static String total_str;
 

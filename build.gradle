@@ -2,11 +2,13 @@ plugins {
 	id 'org.springframework.boot' version '2.2.3.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	//도커
 	id 'com.google.cloud.tools.jib' version '1.0.0'
 }
 
+//도커
 group = 'com.coupang_api'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2'
 sourceCompatibility = '1.8'
 
 configurations {
@@ -19,10 +21,10 @@ repositories {
 	mavenCentral()
 }
 springBoot {
-	mainClassName = "com.coupang_api.Coupang_api.OpenApiTestApplication"
+	mainClassName = "com.coupang_api.Web.OpenApiTestApplication"
 }
 jib {
-	container.mainClass = "com.coupang_api.Coupang_api.OpenApiTestApplication"
+	container.mainClass = "com.coupang_api.Web.OpenApiTestApplication"
 }
 
 dependencies {

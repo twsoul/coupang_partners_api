@@ -10,7 +10,7 @@ import org.json.simple.parser.ParseException;
 import java.io.IOException;
 import java.util.Random;
 
-import static com.coupang_api.Coupang_api.OpenApiTestApplication.total_str;
+import static com.coupang_api.Web.OpenApiTestApplication.total_str;
 import static com.coupang_api.Secret_Key_cls.ACCESS_KEY;
 import static com.coupang_api.Secret_Key_cls.SECRET_KEY;
 import static com.coupang_api.String_store.High_end_cpu;

@@ -1,6 +1,6 @@
+//package com.coupang_api.Web;
 package com.coupang_api.Web;
 
-import com.coupang_api.Coupang_api.OpenApiTestApplication;
 import lombok.AllArgsConstructor;
 import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Controller;
@@ -10,14 +10,28 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
 @AllArgsConstructor
 public class WebController {
+
+
     @GetMapping("/")
-    public String main(Model model) {
+    public String main(Model model, HttpServletRequest request) {
         model.addAttribute("msg","test");
+
+
+        HttpSession session = request.getSession();
+        String ACCESS_KEY = (String)session.getAttribute("_access_key");
+        String SECRET_KEY = (String)session.getAttribute("_secret_key");
+
+        model.addAttribute("_access_key",ACCESS_KEY);
+        model.addAttribute("_secret_key",SECRET_KEY);
+
+
+
         return "main";
     }
 
@@ -37,29 +51,27 @@ public class WebController {
             String result = OpenApiTestApplication.deepLink_total(search_Str,ACCESS_KEY,SECRET_KEY);
             model.addAttribute("_result1",result);
 
-            Cookie cookie_ACCESS_KEY = new Cookie("ACCESS_KEY", ACCESS_KEY);
-            Cookie cookie_SECRET_KEY = new Cookie("SECRET_KEY", SECRET_KEY);
 
-            cookie_ACCESS_KEY.setMaxAge(0);
-            cookie_SECRET_KEY.setMaxAge(0);
+            //검색 후에도 값 남아 있을 수 있도록,
+            model.addAttribute("_access_key",ACCESS_KEY);
+            model.addAttribute("_secret_key",SECRET_KEY);
+//request의 getSession() 메서드는 서버에 생성된 세션이 있다면 세션을 반환하고, 없다면 새 세션을 생성하여 반환
+            HttpSession session = request.getSession();
 
-            cookie_ACCESS_KEY.setPath("/"); // 모든 경로에서 접근 가능 하도록 설정
-            cookie_SECRET_KEY.setPath("/"); // 모든 경로에서 접근 가능 하도록 설정
-
-            response.addCookie(cookie_ACCESS_KEY);
-            response.addCookie(cookie_SECRET_KEY);
+            session.setAttribute("_access_key", ACCESS_KEY);
+            session.setAttribute("_secret_key", SECRET_KEY);
 
         }
 
-        Cookie[] Cookies = request.getCookies();
-        for(int i =0; i<Cookies.length;i++){
-            if(Cookies[i].getName().equals("ACCESS_KEY")){
-                model.addAttribute("_access_key",Cookies[i].getValue());
-
-            }else if(Cookies[i].getName().equals("SECRET_KEY")){
-                model.addAttribute("_secret_key",Cookies[i].getValue());
-            }
-        }
+//        Cookie[] Cookies = request.getCookies();
+//        for(int i =0; i<Cookies.length;i++){
+//            if(Cookies[i].getName().equals("ACCESS_KEY")){
+//                model.addAttribute("_access_key",Cookies[i].getValue());
+//
+//            }else if(Cookies[i].getName().equals("SECRET_KEY")){
+//                model.addAttribute("_secret_key",Cookies[i].getValue());
+//            }
+//        }
 
 
         return "main";
