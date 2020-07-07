@@ -7,8 +7,8 @@ plugins {
 }
 
 //도커
-group = 'com.coupang_api'
-version = '0.0.2'
+group = 'com.1013cm/coupang_api'
+version = '0.0.4'
 sourceCompatibility = '1.8'
 
 configurations {
