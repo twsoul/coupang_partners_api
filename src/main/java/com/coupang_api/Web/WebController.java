@@ -48,6 +48,7 @@ public class WebController {
         if (search_Str.isEmpty()|| search_Str.equals("")){
 
         }else{
+            // 파트너스 api 리턴 결과
             String result = OpenApiTestApplication.deepLink_total(search_Str,ACCESS_KEY,SECRET_KEY);
             model.addAttribute("_result1",result);
 

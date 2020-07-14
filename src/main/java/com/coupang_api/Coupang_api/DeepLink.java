@@ -57,7 +57,7 @@ public class    DeepLink {
 
         String result_json = EntityUtils.toString(httpResponse.getEntity());
 //         verify
-        System.out.println(result_json);
+//        System.out.println(result_json);
         // Note JSON 결과 값
 //        {
 //          "rCode":"0",
@@ -97,9 +97,10 @@ public class    DeepLink {
         return "good";
     }
 
+    // todo 검색 링크 만들어 주는 메소드. // 따온표 제거
     public static String make_request_json_20(String[] str_arr){
         String str_result ="";
-        System.out.println(str_arr.length);
+//        System.out.println(str_arr.length);
         for(int i =0; i<str_arr.length;i++){
             str_result = str_result + "\"https://www.coupang.com/np/search?component=&q="+str_arr[i]+"\",";
         }
