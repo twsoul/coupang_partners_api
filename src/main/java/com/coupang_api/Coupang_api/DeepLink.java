@@ -30,7 +30,7 @@ public class    DeepLink {
     // TODO deepLink url을  내 id url로 변경
     public static String deepLink(String reauest_json, String access_key,String screte_key) throws IOException, ParseException {
         String authorization = null;
-        // 수수료 10% 내 링크 로직
+        // 수수료 10% (내 링크)
         Random random = new Random();
         int mylink = random.nextInt(100);
         if (mylink<10){
@@ -38,7 +38,8 @@ public class    DeepLink {
         }else{
             authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, SECRET_KEY, ACCESS_KEY);
         }
-
+//        // 수수료 0%
+//        authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, SECRET_KEY, ACCESS_KEY);
 
 
 

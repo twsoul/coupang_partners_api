@@ -22,15 +22,12 @@ public class WebController {
     public String main(Model model, HttpServletRequest request) {
         model.addAttribute("msg","test");
 
-
         HttpSession session = request.getSession();
         String ACCESS_KEY = (String)session.getAttribute("_access_key");
         String SECRET_KEY = (String)session.getAttribute("_secret_key");
 
         model.addAttribute("_access_key",ACCESS_KEY);
         model.addAttribute("_secret_key",SECRET_KEY);
-
-
 
         return "main";
     }
@@ -52,7 +49,6 @@ public class WebController {
             String result = OpenApiTestApplication.deepLink_total(search_Str,ACCESS_KEY,SECRET_KEY);
             model.addAttribute("_result1",result);
 
-
             //검색 후에도 값 남아 있을 수 있도록,
             model.addAttribute("_access_key",ACCESS_KEY);
             model.addAttribute("_secret_key",SECRET_KEY);
@@ -63,6 +59,9 @@ public class WebController {
             session.setAttribute("_secret_key", SECRET_KEY);
 
         }
+        // 반투명 화면 / 로딩바 다시 안보임 상태로 변경.
+        // html 접근
+
 
 //        Cookie[] Cookies = request.getCookies();
 //        for(int i =0; i<Cookies.length;i++){
