@@ -33,3 +33,68 @@ body { margin: 0; /*body의 바깥 여백을 없앰으로서 내비게이션 바
     text-align: center;
     text-decoration: none; /*밑줄 없앰*/
     color: white; }
+
+
+    #loading {
+
+      position: fixed;
+
+      margin: auto;
+
+      top: 0;
+
+      left: 0;
+
+      bottom: 0;
+
+      right: 0;
+
+      z-index: 7000;
+
+    }
+
+
+
+    #loading:before {
+
+      content: '';
+
+      display: block;
+
+      position: fixed;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 100%;
+
+      background-color: rgba(255, 255, 255);
+
+    }
+
+
+
+    #loading img {
+
+      position: absolute;
+
+      top: 0px;
+
+      bottom: 0px;
+
+      left: 0px;
+
+      right: 0px;
+
+      margin: auto;
+
+      width: 120px;
+
+      height: 120px;
+
+      z-index: 7001;
+
+    }

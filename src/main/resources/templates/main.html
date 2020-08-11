@@ -21,16 +21,22 @@ textarea{
   </head>
 
 <body>
+<!--로딩바-->
+<!--<div id="loading">-->
+<!--    <img id="loading-img" src="../static/images/로딩바.gif" alt="">-->
+<!--</div>-->
+
 
 <nav>
     <ul class="nav-container">
         <li class="nav-item"><a href="/">home</a></li>
-        <li class="nav-item"><a href="/">사용법</a></li>
+        <li class="nav-item"><a href="/manual">사용법</a></li>
+        <li class="nav-item"><a href="/manual">활용사례</a></li>
     </ul>
 </nav>
 <h1 style="margin-left:30px;color:#24695e">쿠팡 파트너스 api 활용 기능</h1>
     <div>
-        <h2>쿠팡 파트너스 api 대량 링크 바꿔주기</h2>
+        <h2>쿠팡 파트너스 api 대량 링크 변환</h2>
 
 
         <a href="javascript:openLayeredDialog();">레이어 보이기</a>
@@ -47,7 +53,7 @@ textarea{
                    <span><textarea name="_search" cols="50" rows="20" ></textarea></span>
                    <span><input type="submit" value="변환하기"></span>
 
-                       <span><textarea name="_Secret result" cols="50" rows="20" th:text="${_result1}" disabled>여기에 링크가 표시됩니다.</textarea></span>
+                   <span><textarea name="_Secret result" cols="50" rows="20" th:text="${_result1}" disabled>여기에 링크가 표시됩니다.</textarea></span>
 
                </div>
 

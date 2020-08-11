@@ -77,6 +77,11 @@ public class WebController {
         return "main";
     }
 
+    @GetMapping("/manual")
+    public String manual_page(Model model, HttpServletRequest request) {
+
+        return "manual";
+    }
 
 
 }
