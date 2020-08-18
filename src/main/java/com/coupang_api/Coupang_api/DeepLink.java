@@ -19,7 +19,7 @@ public class    DeepLink {
 
     private final static String REQUEST_METHOD = "POST";
     private final static String DOMAIN = "https://api-gateway.coupang.com";
-    private final static String deepLink_URL = "/v2/providers/affiliate_open_api/apis/openapi/deeplink";
+    private final static String deepLink_URL = "/v2/providers/affiliate_open_api/apis/openapi/deeplink?subId=eaff";
     private final static String URL = "/v2/providers/affiliate_open_api/apis/openapi/deeplink";
     // Replace with your own ACCESS_KEY and SECRET_KEY
 

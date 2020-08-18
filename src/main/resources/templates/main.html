@@ -8,8 +8,12 @@
       <link rel="stylesheet" href="css/design_coupang.css"/>
       <script type="text/javascript" src="js/bootstrap.js"></script>
       <script type="text/javascript" src="js/function_js.js"></script>
-      <style>
-          div{
+      <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
+<!--      <script src="http://code.jquery.com/jquery-latest.min.js">-->
+
+  </head>
+  <style>
+div{
     margin-left: 30px;
     float:left;
 }
@@ -17,14 +21,26 @@
 textarea{
     background-color: #24695e;
 }
-      </style>
-  </head>
+  </style>
+  <script>
 
+$(document).ready(function() {
+$('#loading').hide();
+
+$('#trans').submit(function(){
+    $('#loading').show();
+    return true;
+});
+
+});
+
+</script>
 <body>
 <!--로딩바-->
-<!--<div id="loading">-->
-<!--    <img id="loading-img" src="../static/images/로딩바.gif" alt="">-->
-<!--</div>-->
+    <div id="loading" style="margin-left: 0px;">
+    <img src="/images/로딩바.gif">
+    <p>변환중입니다..잠시기다려주세요.</p>
+</div>
 
 
 <nav>
@@ -37,13 +53,8 @@ textarea{
 <h1 style="margin-left:30px;color:#24695e">쿠팡 파트너스 api 활용 기능</h1>
     <div>
         <h2>쿠팡 파트너스 api 대량 링크 변환</h2>
-
-
-        <a href="javascript:openLayeredDialog();">레이어 보이기</a>
-
-
         <div>
-            <form method="POST" action="/">
+            <form id="trans" method="POST" action="/" >
                 <h2>API 키</h2>
                 <p><span>Access Key <textarea name="_access_key" type="text" style="width:50%" th:text="${_access_key}"> </textarea> </span></p>
                 <p><span>Secret Key <textarea name="_secret_key" type="text" style="width:50%" th:text="${_secret_key}"></textarea> </textarea> </span></p>
