@@ -6,6 +6,24 @@ div{
 textarea{
     background-color: #24695e;
 }
+
+
+/* text 가운데 정렬 */
+h3{
+  margin-top: 8px;
+  text-align: center;
+  }
+
+td{
+valign = middle;
+}
+
+td input{
+margin-left : 18px;
+width : 500px;
+}
+
+
 /*
 nav{ background-color :#ea5e60 }
 nav ul{

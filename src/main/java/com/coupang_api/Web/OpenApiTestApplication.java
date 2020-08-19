@@ -27,6 +27,7 @@ public class OpenApiTestApplication {
             String search_str
             ,String ACCESS_KEY
             ,String SECRET_KEY
+            ,String SubID
     ) throws IOException, ParseException {
         total_str ="";
 
@@ -60,7 +61,7 @@ public class OpenApiTestApplication {
 //                System.out.println(temp_str[i]);
             }
 //            System.out.println("mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm");
-            deepLink(make_request_json_20(temp_str),ACCESS_KEY,SECRET_KEY);
+            deepLink(make_request_json_20(temp_str),ACCESS_KEY,SECRET_KEY,SubID);
         }
 
         return total_str;

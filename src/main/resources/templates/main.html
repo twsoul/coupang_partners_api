@@ -59,20 +59,20 @@ $('#trans').submit(function(){
                 <table>
                     <tr>
                         <td><h3>Access Key</h3></td>
-                        <td><input name="_access_key" type="text" th:text="${_access_key}"> </input></td>
+                        <td><input name="_access_key" type="text" th:value="${_access_key}"> </td>
                     </tr>
                     <tr>
                         <td><h3>Secret Key</h3></td>
-                        <td><input name="_secret_key" type="text" th:text="${_secret_key}"></input></td>
+                        <td><input name="_secret_key" type="text" th:value="${_secret_key}"> </input></td>
                     </tr>
                     <tr>
                         <td><h3>Sub Id (채널 아이디) </h3></td>
-                        <td><input name="_sub_id" type="text" th:text="${_sub_id}"></input></td>
+                        <td><input name="_sub_id" type="text" th:value="${_sub_id}"> </input></td>
                     </tr>
                 </table>
-                <p><span>Access Key <textarea name="_access_key" type="text" style="width:50%" th:text="${_access_key}"> </textarea> </span></p>
-                <p><span>Secret Key <textarea name="_secret_key" type="text" style="width:50%" th:text="${_secret_key}"></textarea> </textarea> </span></p>
-                <p><span>Sub Id (채널 아이디)<textarea name="_secret_key" type="text" style="width:50%" th:text="${_sub_id}"></textarea> </textarea> </span></p>
+<!--                <p><span>Access Key <textarea name="_access_key" type="text" style="width:50%" th:text="${_access_key}"> </textarea> </span></p>-->
+<!--                <p><span>Secret Key <textarea name="_secret_key" type="text" style="width:50%" th:text="${_secret_key}"></textarea> </textarea> </span></p>-->
+<!--                <p><span>Sub Id (채널 아이디)<textarea name="_secret_key" type="text" style="width:50%" th:text="${_sub_id}"></textarea> </textarea> </span></p>-->
 
                <div>
                    <h2 style="margin-left:30px;color:#24695e">검색어 입력</h2>

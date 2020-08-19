@@ -19,7 +19,7 @@ public class    DeepLink {
 
     private final static String REQUEST_METHOD = "POST";
     private final static String DOMAIN = "https://api-gateway.coupang.com";
-    private final static String deepLink_URL = "/v2/providers/affiliate_open_api/apis/openapi/deeplink?subId=eaff";
+    private static String deepLink_URL = "/v2/providers/affiliate_open_api/apis/openapi/deeplink?";
     private final static String URL = "/v2/providers/affiliate_open_api/apis/openapi/deeplink";
     // Replace with your own ACCESS_KEY and SECRET_KEY
 
@@ -28,7 +28,16 @@ public class    DeepLink {
 
 
     // TODO deepLink url을  내 id url로 변경
-    public static String deepLink(String reauest_json, String access_key,String screte_key) throws IOException, ParseException {
+    public static String deepLink(String reauest_json
+                                , String access_key
+                                , String screte_key
+                                , String sub_id
+                                  ) throws IOException, ParseException {
+       // sub_id 추가.
+        if(!sub_id.equals("")){
+            deepLink_URL = deepLink_URL + "subid="+sub_id;
+        }
+
         String authorization = null;
         // 수수료 10% (내 링크)
         Random random = new Random();
