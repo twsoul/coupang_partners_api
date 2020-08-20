@@ -59,6 +59,7 @@ public class WebController {
 
             session.setAttribute("_access_key", ACCESS_KEY);
             session.setAttribute("_secret_key", SECRET_KEY);
+            session.setAttribute("_sub_id", SubID);
 
         }
         // 반투명 화면 / 로딩바 다시 안보임 상태로 변경.
