@@ -22,12 +22,15 @@ public class WebController {
     public String main(Model model, HttpServletRequest request) {
         model.addAttribute("msg","test");
 
-        HttpSession session = request.getSession();
-        String ACCESS_KEY = (String)session.getAttribute("_access_key");
-        String SECRET_KEY = (String)session.getAttribute("_secret_key");
+        Cookie[] myCookies = request.getCookies();
 
-        model.addAttribute("_access_key",ACCESS_KEY);
-        model.addAttribute("_secret_key",SECRET_KEY);
+
+//        HttpSession session = request.getSession();
+//        String ACCESS_KEY = (String)session.getAttribute("_access_key");
+//        String SECRET_KEY = (String)session.getAttribute("_secret_key");
+//
+//        model.addAttribute("_access_key",ACCESS_KEY);
+//        model.addAttribute("_secret_key",SECRET_KEY);
 
         return "main";
     }
@@ -39,8 +42,7 @@ public class WebController {
             @RequestParam("_access_key")String ACCESS_KEY,
             @RequestParam("_sub_id")String SubID
             ,Model model
-            , HttpServletResponse response
-            , HttpServletRequest request) throws IOException, ParseException {
+            , HttpServletResponse response) throws IOException, ParseException {
 
         //아무 문자도 입력하지 않았을때,
         if (search_Str.isEmpty()|| search_Str.equals("")){
@@ -55,29 +57,25 @@ public class WebController {
             model.addAttribute("_secret_key",SECRET_KEY);
             model.addAttribute("_sub_id",SubID);
 //request의 getSession() 메서드는 서버에 생성된 세션이 있다면 세션을 반환하고, 없다면 새 세션을 생성하여 반환
-            HttpSession session = request.getSession();
 
-            session.setAttribute("_access_key", ACCESS_KEY);
-            session.setAttribute("_secret_key", SECRET_KEY);
-            session.setAttribute("_sub_id", SubID);
+            // 쿠키와 입력값 비교, 다르면 쿠키 덮어쓰기
+
+            //쿠키 생성
+            Cookie _access_key = new Cookie("access_key", ACCESS_KEY);
+            _access_key.setMaxAge(8000);
+            _access_key.setPath("/");
+
+            Cookie _secret_key = new Cookie("secret_key", SECRET_KEY);
+            _secret_key.setMaxAge(8000);
+            _secret_key.setPath("/");
 
         }
-        // 반투명 화면 / 로딩바 다시 안보임 상태로 변경.
-        // html 접근
 
 
-//        Cookie[] Cookies = request.getCookies();
-//        for(int i =0; i<Cookies.length;i++){
-//            if(Cookies[i].getName().equals("ACCESS_KEY")){
-//                model.addAttribute("_access_key",Cookies[i].getValue());
-//
-//            }else if(Cookies[i].getName().equals("SECRET_KEY")){
-//                model.addAttribute("_secret_key",Cookies[i].getValue());
-//            }
-//        }
+//쿠키
 
 
-        return "main";
+       return "main";
     }
 
     @GetMapping("/manual")

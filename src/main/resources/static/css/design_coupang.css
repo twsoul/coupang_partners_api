@@ -69,15 +69,24 @@ body { margin: 0; /*body의 바깥 여백을 없앰으로서 내비게이션 바
 
 
 
-  #loading > img {
-  	position: absolute;
-  	top: 50%;
-  	left: 50%;
-  	z-index: 100;
-  }
+   #loading > img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 100;
+   }
    #loading > p {
     	position: absolute;
     	top: 57%;
     	left: 43%;
     	z-index: 101;
+    }
+
+    .parent {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    .child {
+        position: relative;
+        top: 50px;
     }

@@ -40,15 +40,15 @@ public class    DeepLink {
 
         String authorization = null;
         // 수수료 10% (내 링크)
-        Random random = new Random();
-        int mylink = random.nextInt(100);
-        if (mylink<10){
-            authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, screte_key, access_key);
-        }else{
-            authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, SECRET_KEY, ACCESS_KEY);
-        }
+//        Random random = new Random();
+//        int mylink = random.nextInt(100);
+//        if (mylink<10){
+//            authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, screte_key, access_key);
+//        }else{
+//            authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, SECRET_KEY, ACCESS_KEY);
+//        }
 //        // 수수료 0%
-//        authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, SECRET_KEY, ACCESS_KEY);
+        authorization = HmacGenerator.generate(REQUEST_METHOD, deepLink_URL, screte_key, access_key);
 
 
 
