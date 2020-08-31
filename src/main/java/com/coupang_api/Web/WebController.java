@@ -20,10 +20,21 @@ public class WebController {
 
     @GetMapping("/")
     public String main(Model model, HttpServletRequest request) {
-        model.addAttribute("msg","test");
+        // 쿠키 읽어 오기.
 
-        Cookie[] myCookies = request.getCookies();
+        // 쿠키와 입력값 비교, 다르면 쿠키 덮어쓰기
+        Cookie[] Cookies = request.getCookies();
 
+        if (Cookies != null) {
+            for (Cookie cookie : Cookies) {
+                if (cookie.getName().equals("access_key")) {
+                    model.addAttribute("_access_key",cookie.getValue());
+                }
+                if (cookie.getName().equals("secret_key")) {
+                    model.addAttribute("_secret_key",cookie.getValue());
+                }
+            }
+        }
 
 //        HttpSession session = request.getSession();
 //        String ACCESS_KEY = (String)session.getAttribute("_access_key");
@@ -42,7 +53,8 @@ public class WebController {
             @RequestParam("_access_key")String ACCESS_KEY,
             @RequestParam("_sub_id")String SubID
             ,Model model
-            , HttpServletResponse response) throws IOException, ParseException {
+            , HttpServletResponse response
+            ,HttpServletRequest request) throws IOException, ParseException {
 
         //아무 문자도 입력하지 않았을때,
         if (search_Str.isEmpty()|| search_Str.equals("")){
@@ -59,15 +71,39 @@ public class WebController {
 //request의 getSession() 메서드는 서버에 생성된 세션이 있다면 세션을 반환하고, 없다면 새 세션을 생성하여 반환
 
             // 쿠키와 입력값 비교, 다르면 쿠키 덮어쓰기
+            Cookie[] Cookies = request.getCookies();
 
-            //쿠키 생성
-            Cookie _access_key = new Cookie("access_key", ACCESS_KEY);
-            _access_key.setMaxAge(8000);
-            _access_key.setPath("/");
+            if (Cookies != null) {
+                for (Cookie cookie : Cookies) {
+                    if (cookie.getName().equals("access_key")&&!cookie.getValue().equals(ACCESS_KEY)) {
+                        Cookie _access_key_coo = new Cookie("access_key", ACCESS_KEY);
+                        _access_key_coo.setMaxAge(3600);
+                        _access_key_coo.setPath("/");
+                        response.addCookie(_access_key_coo);
 
-            Cookie _secret_key = new Cookie("secret_key", SECRET_KEY);
-            _secret_key.setMaxAge(8000);
-            _secret_key.setPath("/");
+                    }
+                    if (cookie.getName().equals("secret_key")&&!cookie.getValue().equals(SECRET_KEY)) {
+                        Cookie _secret_key_coo = new Cookie("secret_key", SECRET_KEY);
+                        _secret_key_coo.setMaxAge(3600);
+                        _secret_key_coo.setPath("/");
+                        response.addCookie(_secret_key_coo);
+                    }
+
+                }
+            }else{ //쿠키 존재하지 않을때,
+                Cookie _access_key_coo = new Cookie("access_key", ACCESS_KEY);
+                _access_key_coo.setMaxAge(3600);
+                _access_key_coo.setPath("/");
+                response.addCookie(_access_key_coo);
+                Cookie _secret_key_coo = new Cookie("secret_key", SECRET_KEY);
+                _secret_key_coo.setMaxAge(3600);
+                _secret_key_coo.setPath("/");
+                response.addCookie(_secret_key_coo);
+            }
+
+
+
+
 
         }
 
