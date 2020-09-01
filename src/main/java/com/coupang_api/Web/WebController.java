@@ -117,6 +117,10 @@ public class WebController {
 
         return "manual";
     }
+    @GetMapping("/footer")
+    public String footer(Model model, HttpServletRequest request) {
 
+        return "footer";
+    }
 
 }

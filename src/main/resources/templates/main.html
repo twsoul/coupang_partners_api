@@ -23,7 +23,7 @@ textarea{
 }
   </style>
   <script>
-
+<!--로딩바-->
 $(document).ready(function() {
 $('#loading').hide();
 
@@ -34,6 +34,11 @@ $('#trans').submit(function(){
 
 });
 
+<!--footer 호출-->
+$( function() {
+//footer
+$(".footer").load('/footer');
+});
 </script>
 <body>
 <!--로딩바-->
@@ -51,7 +56,7 @@ $('#trans').submit(function(){
     </ul>
 </nav>
 <h1 style=" margin-left:30px;color:#24695e">쿠팡 파트너스 api 활용 기능</h1>
-    <div>
+    <div id="contents">
         <h2>쿠팡 파트너스 api 대량 링크 변환</h2>
         <div>
             <form id="trans" method="POST" action="/" >
@@ -87,5 +92,12 @@ $('#trans').submit(function(){
         </div>
 
     </div>
+<!--<div class="footer">-->
+<!--</div>-->
+<div id="side-footer" style="float:right">
+    <p>추천인 코드 : AF4923099</p>
+    <p>ringobee &copy; 2020</p>
+</div>
+
 </body>
 </html>
