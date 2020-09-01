@@ -77,26 +77,24 @@ public class WebController {
                 for (Cookie cookie : Cookies) {
                     if (cookie.getName().equals("access_key")&&!cookie.getValue().equals(ACCESS_KEY)) {
                         Cookie _access_key_coo = new Cookie("access_key", ACCESS_KEY);
-                        _access_key_coo.setMaxAge(3600);
-                        _access_key_coo.setPath("/");
+                        _access_key_coo.setMaxAge(3600*24*30);
                         response.addCookie(_access_key_coo);
 
                     }
                     if (cookie.getName().equals("secret_key")&&!cookie.getValue().equals(SECRET_KEY)) {
                         Cookie _secret_key_coo = new Cookie("secret_key", SECRET_KEY);
-                        _secret_key_coo.setMaxAge(3600);
-                        _secret_key_coo.setPath("/");
+                        _secret_key_coo.setMaxAge(3600*24*30);
                         response.addCookie(_secret_key_coo);
                     }
 
                 }
             }else{ //쿠키 존재하지 않을때,
                 Cookie _access_key_coo = new Cookie("access_key", ACCESS_KEY);
-                _access_key_coo.setMaxAge(3600);
+                _access_key_coo.setMaxAge(3600*24*30);
                 _access_key_coo.setPath("/");
                 response.addCookie(_access_key_coo);
                 Cookie _secret_key_coo = new Cookie("secret_key", SECRET_KEY);
-                _secret_key_coo.setMaxAge(3600);
+                _secret_key_coo.setMaxAge(3600*24*30);
                 _secret_key_coo.setPath("/");
                 response.addCookie(_secret_key_coo);
             }
