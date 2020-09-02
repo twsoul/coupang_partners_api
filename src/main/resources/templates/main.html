@@ -18,9 +18,7 @@ div{
     float:left;
 }
 
-textarea{
-    background-color: #24695e;
-}
+
   </style>
   <script>
 <!--로딩바-->
@@ -77,14 +75,13 @@ $(".footer").load('/footer');
                 </table>
 
                <div class="parent">
-                   <h2 style="margin-left:30px;color:#24695e">검색어 입력</h2>
-                   <div><textarea name="_search" cols="50" rows="20" ></textarea> </div>
-                   <div style="vertical-align: middle">
-                       <input type="submit" value="변환하기">
-                       <h5>-></h5>
-                   </div>
 
-                   <div><textarea name="_Secret result" cols="50" rows="20" th:text="${_result1}" disabled>여기에 링크가 표시됩니다.</textarea></div>
+                   <div> <h2 style="margin-left:30px;color:#24695e">검색어 입력</h2><textarea name="_search" cols="50" rows="20" ></textarea> </div>
+                   <div style="margin-top :200px">
+                       <input type="submit" value="변환하기">
+                       <h3 style="text-align: center">→</h3>
+                   </div>
+                   <div> <h2 style="margin-left:30px;color:#24695e"> 여기 링크가 표시됩니다.</h2><textarea name="_result" cols="50" rows="20" th:text="${_result1}" disabled></textarea></div>
 
                </div>
 
@@ -92,12 +89,9 @@ $(".footer").load('/footer');
         </div>
 
     </div>
-<!--<div class="footer">-->
-<!--</div>-->
-<div id="side-footer" style="float:right">
-    <p>추천인 코드 : AF4923099</p>
-    <p>ringobee &copy; 2020</p>
+<div class="footer">
 </div>
+
 
 </body>
 </html>

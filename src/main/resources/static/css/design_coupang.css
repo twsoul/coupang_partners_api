@@ -3,7 +3,7 @@ div{
     float:left;
 }
 
-textarea{
+textarea[name=_search]{
     background-color: #24695e;
 }
 
