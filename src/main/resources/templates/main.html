@@ -10,6 +10,18 @@
       <script type="text/javascript" src="js/function_js.js"></script>
       <script src="http://code.jquery.com/jquery-3.5.1.js"></script>
 <!--      <script src="http://code.jquery.com/jquery-latest.min.js">-->
+        <!--  구글 서치 콘솔 / 애널리틱스 코드    -->
+      <meta name="google-site-verification" content="HDsrphnwZ0nAdB9feEdEs1wuXfV-gsWihkfFimacrzQ" />
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-178259453-1"></script>
+      <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-178259453-1');
+    </script>
+
 
   </head>
   <style>
@@ -17,8 +29,6 @@ div{
     margin-left: 30px;
     float:left;
 }
-
-
   </style>
   <script>
 <!--로딩바-->
@@ -30,6 +40,12 @@ $('#trans').submit(function(){
     return true;
 });
 
+});
+
+<!--header_menu 호출-->
+$( function() {
+//header
+$(".header_menu").load('/header_menu');
 });
 
 <!--footer 호출-->
@@ -46,14 +62,9 @@ $(".footer").load('/footer');
     </div>
 
 
-<nav>
-    <ul class="nav-container">
-        <li class="nav-item"><a href="/">home</a></li>
-        <li class="nav-item"><a href="/blog">사용법</a></li>
-        <li class="nav-item"><a href="/">활용사례</a></li>
-        <li class="nav-item"><a href="/blog">블로그</a></li>
-    </ul>
+<nav class="header_menu">
 </nav>
+
 <h1 style=" margin-left:30px;color:#24695e">쿠팡 파트너스 api 활용 기능</h1>
     <div id="contents">
         <h2>쿠팡 파트너스 api 대량 링크 변환</h2>

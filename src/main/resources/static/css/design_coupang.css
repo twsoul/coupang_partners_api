@@ -34,6 +34,15 @@ ul li{display: inline;} */
 
 
 body { margin: 0; /*body의 바깥 여백을 없앰으로서 내비게이션 바가 페이지에 바짝 붙게 함*/ }
+.header_menu{
+display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: 0; /*쓸 데 없는 공백 제거*/
+    padding: 0; /*쓸 데 없는 공백 제거*/
+    background-color: darkslategrey;
+    list-style-type: none; /*목록 기호 제거*/
+    }
 .nav-container {
     display: flex;
     flex-direction: row;
@@ -89,4 +98,17 @@ body { margin: 0; /*body의 바깥 여백을 없앰으로서 내비게이션 바
     .child {
         position: relative;
         top: 50px;
+    }
+
+    @media (min-width: 80em)
+    html {
+        font-size: 22px;
+    }
+    @media (min-width: 64em)
+    html {
+        font-size: 20px;
+    }
+    @media (min-width: 48em)
+    html {
+        font-size: 18px;
     }

@@ -117,10 +117,20 @@ public class WebController {
 
         return "manual";
     }
+    @GetMapping("/header_menu")
+    public String header_menu(Model model, HttpServletRequest request) {
+
+        return "header_menu";
+    }
     @GetMapping("/footer")
     public String footer(Model model, HttpServletRequest request) {
 
         return "footer";
+    }
+    @GetMapping("/dev_ing")
+    public String dev_ing(Model model, HttpServletRequest request) {
+
+        return "dev_ing";
     }
 
 }
