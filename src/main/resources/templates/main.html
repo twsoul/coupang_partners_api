@@ -69,38 +69,58 @@ $(".footer").load('/footer');
     <div id="contents">
         <h2>쿠팡 파트너스 api 대량 링크 변환</h2>
         <div>
-            <form id="trans" method="POST" action="/" >
-                <h2>API 키</h2>
-                <table>
-                    <tr>
-                        <td><h3>Access Key</h3></td>
-                        <td><input name="_access_key" type="text" th:value="${_access_key}"> </td>
-                    </tr>
-                    <tr>
-                        <td><h3>Secret Key</h3></td>
-                        <td><input name="_secret_key" type="text" th:value="${_secret_key}"> </td>
-                    </tr>
-                    <tr>
-                        <td><h3>Sub Id (채널 아이디) </h3></td>
-                        <td><input name="_sub_id" type="text" th:value="${_sub_id}"> </td>
-                    </tr>
-                </table>
+                <form id="trans" method="POST" action="/" >
+                    <h2>API 키</h2>
+                    <table>
+                        <tr>
+                            <td><h3>Access Key</h3></td>
+                            <td><input name="_access_key" type="text" th:value="${_access_key}"> </td>
+                        </tr>
+                        <tr>
+                            <td><h3>Secret Key</h3></td>
+                            <td><input name="_secret_key" type="text" th:value="${_secret_key}"> </td>
+                        </tr>
+                        <tr>
+                            <td><h3>Sub Id (채널 아이디) </h3></td>
+                            <td><input name="_sub_id" type="text" th:value="${_sub_id}"> </td>
+                        </tr>
+                    </table>
 
-               <div class="parent">
+                   <div class="parent">
 
-                   <div> <h2 style="margin-left:30px;color:#24695e">검색어 입력</h2><textarea name="_search" cols="50" rows="20" ></textarea> </div>
-                   <div style="margin-top :200px">
-                       <input type="submit" value="변환하기">
-                       <h3 style="text-align: center">→</h3>
+                       <div> <h2 style="margin-left:30px;color:#24695e">검색어 입력</h2><textarea name="_search" cols="50" rows="20" ></textarea> </div>
+                       <div style="margin-top :200px">
+                           <input type="submit" value="변환하기">
+                           <h3 style="text-align: center">→</h3>
+                       </div>
+                       <div> <h2 style="margin-left:30px;color:#24695e"> 여기 링크가 표시됩니다.</h2><textarea name="_result" cols="50" rows="20" th:text="${_result1}" disabled></textarea></div>
+
                    </div>
-                   <div> <h2 style="margin-left:30px;color:#24695e"> 여기 링크가 표시됩니다.</h2><textarea name="_result" cols="50" rows="20" th:text="${_result1}" disabled></textarea></div>
 
-               </div>
+                </form>
 
-            </form>
+            <!-- 라이브리 시티 설치 코드 -->
+            <div id="lv-container" data-id="city" data-uid="MTAyMC81MTU5OC8yODA3OQ==">
+                <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+                <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+            </div>
+            <!-- 시티 설치 코드 끝 -->
         </div>
 
     </div>
+
 <div class="footer">
 </div>
 

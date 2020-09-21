@@ -112,3 +112,7 @@ display: flex;
     html {
         font-size: 18px;
     }
+
+    #lv-container{
+    width:90%;
+    }
