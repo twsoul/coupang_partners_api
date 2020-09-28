@@ -25,11 +25,11 @@ public class PostgreSQLRunner implements ApplicationRunner {
             System.out.println(connection.getMetaData().getURL());
             System.out.println(connection.getMetaData().getUserName());
 
-            Statement statement = connection.createStatement();
-            String sql = "CREATE TABLE account(ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
-            statement.executeUpdate(sql);
+           // Statement statement = connection.createStatement();
+           // String sql = "CREATE TABLE account(ID INTEGER NOT NULL, name VARCHAR(255), PRIMARY KEY (id))";
+           // statement.executeUpdate(sql);
         }
-        jdbcTemplate.execute("INSERT INTO account VALUES (1, 'dsunni')");
+       // jdbcTemplate.execute("INSERT INTO account VALUES (1, 'dsunni')");
     }
 
 }
