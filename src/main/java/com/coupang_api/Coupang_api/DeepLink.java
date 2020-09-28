@@ -13,7 +13,6 @@ import java.util.Random;
 import static com.coupang_api.Web.OpenApiTestApplication.total_str;
 import static com.coupang_api.Secret_Key_cls.ACCESS_KEY;
 import static com.coupang_api.Secret_Key_cls.SECRET_KEY;
-import static com.coupang_api.String_store.High_end_cpu;
 
 public class    DeepLink {
 
@@ -24,7 +23,6 @@ public class    DeepLink {
     // Replace with your own ACCESS_KEY and SECRET_KEY
 
 //    private final static String REQUEST_JSON = "{\"coupangUrls\": [\"https://www.coupang.com/np/search?component=&q=good&channel=user\",\"https://www.coupang.com/np/coupangglobal\"]}";
-    private final static String REQUEST_JSON = High_end_cpu;
 
 
     // TODO deepLink url을  내 id url로 변경

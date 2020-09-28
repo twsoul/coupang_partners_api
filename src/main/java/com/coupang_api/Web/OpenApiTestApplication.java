@@ -11,7 +11,6 @@ import java.util.Queue;
 
 import static com.coupang_api.Coupang_api.DeepLink.deepLink;
 import static com.coupang_api.Coupang_api.DeepLink.make_request_json_20;
-import static com.coupang_api.String_store.High_end_cpu;
 
 @SpringBootApplication
 public class OpenApiTestApplication {

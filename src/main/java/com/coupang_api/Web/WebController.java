@@ -106,7 +106,6 @@ public class WebController {
         }
 
 
-//쿠키
 
 
        return "main";
@@ -130,7 +129,15 @@ public class WebController {
     @GetMapping("/dev_ing")
     public String dev_ing(Model model, HttpServletRequest request) {
 
+
         return "dev_ing";
+    }
+
+    @GetMapping("/trand")
+    public String trand(Model model, HttpServletRequest request) {
+
+
+        return "trand";
     }
 
 }
