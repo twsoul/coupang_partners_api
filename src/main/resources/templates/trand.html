@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/design_coupang.css"/>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/function_js.js"></script>
+
+
+
+</head>
+
+<script>
+<!--로딩바-->
+$(document).ready(function() {
+$('#loading').hide();
+
+$('#trans').submit(function(){
+    $('#loading').show();
+    return true;
+});
+
+});
+
+<!--header_menu 호출-->
+$( function() {
+//header
+$(".header_menu").load('/header_menu');
+});
+
+<!--footer 호출-->
+$( function() {
+//footer
+$(".footer").load('/footer');
+});
+</script>
+<body>
+
+<nav class="header_menu">
+</nav>
+
+
+
+        <!-- 라이브리 시티 설치 코드 -->
+        <div id="lv-container" data-id="city" data-uid="MTAyMC81MTU5OC8yODA3OQ==">
+            <script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+            <noscript> 라이브리 댓글 작성을 위해 JavaScript를 활성화 해주세요</noscript>
+        </div>
+        <!-- 시티 설치 코드 끝 -->
+    </div>
+
+</div>
+
+<div class="footer">
+</div>
+
+
+</body>
+</html>
