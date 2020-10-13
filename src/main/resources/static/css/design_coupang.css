@@ -116,3 +116,7 @@ display: flex;
     #lv-container{
     width:90%;
     }
+
+    .kakao_ad_area{
+    padding: 3rem;
+    }
