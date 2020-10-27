@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap-grid.css"/>
     <link rel="stylesheet" href="css/design_coupang.css"/>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -32,19 +33,75 @@ $( function() {
 $(".header_menu").load('/header_menu');
 });
 
-<!--footer 호출-->
-$( function() {
-//footer
-$(".footer").load('/footer');
-});
+
+    function openInNewTab(url) {
+        var win = window.open(url, '_blank');
+        win.focus();
+    }
 </script>
 <body>
 
 <nav class="header_menu">
 </nav>
 
+<span class="visible-lg">
+<div class="container">
+    <h2>반응형 테이블</h2>
+    <div class="table table-striped">
+<!--        <div class="table-responsive">-->
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+                <th>Table heading</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <div onclick="openInNewTab('https://www.naver.com');" style="cursor:pointer;">
+                        <h4>여성긴팔티셔츠</h4>
+                        <img src="//thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/62558122419206-0dca5cb0-a825-47aa-99e6-0ce4578bea4e.jpg" />
+                    </div>
+                </td>
 
+                <td><h4>여성긴팔티셔츠</h4>
+                    <img src="//thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/62558122419206-0dca5cb0-a825-47aa-99e6-0ce4578bea4e.jpg" /></td>
+                <td><h4>여성긴팔티셔츠</h4>
+                    <img src="//thumbnail9.coupangcdn.com/thumbnails/remote/230x230ex/image/retail/images/62558122419206-0dca5cb0-a825-47aa-99e6-0ce4578bea4e.jpg" /></td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+                <td>Table cell</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
+</div>
         <!-- 라이브리 시티 설치 코드 -->
         <div id="lv-container" data-id="city" data-uid="MTAyMC81MTU5OC8yODA3OQ==">
             <script type="text/javascript">
@@ -66,9 +123,11 @@ $(".footer").load('/footer');
     </div>
 
 </div>
+</span>
 
-<div class="footer">
-</div>
+
+<span class="visible-xs">small</span>
+<span class="visible-lg">large</span>
 
 
 </body>

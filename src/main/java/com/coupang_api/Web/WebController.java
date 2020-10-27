@@ -98,11 +98,6 @@ public class WebController {
                 _secret_key_coo.setPath("/");
                 response.addCookie(_secret_key_coo);
             }
-
-
-
-
-
         }
 
 
@@ -133,11 +128,6 @@ public class WebController {
         return "dev_ing";
     }
 
-    @GetMapping("/trand")
-    public String trand(Model model, HttpServletRequest request) {
 
-
-        return "trand";
-    }
 
 }

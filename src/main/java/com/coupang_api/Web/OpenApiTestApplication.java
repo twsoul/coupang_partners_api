@@ -32,6 +32,8 @@ public class OpenApiTestApplication {
 
         // 특수문자 제거.
         search_str = StringReplace(search_str);
+        SubID = StringReplace(search_str); // subid도 특수문자 제거.
+
         // enter 단위로 항목 나누기.
         String[] split_str = search_str.split("\\r\\n");
 

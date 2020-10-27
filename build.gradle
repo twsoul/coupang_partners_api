@@ -27,6 +27,7 @@ jib {
 	container.mainClass = "com.coupang_api.Web.OpenApiTestApplication"
 }
 
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
