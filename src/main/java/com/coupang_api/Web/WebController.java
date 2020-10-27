@@ -3,6 +3,8 @@ package com.coupang_api.Web;
 
 import lombok.AllArgsConstructor;
 import org.json.simple.parser.ParseException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -46,6 +48,9 @@ public class WebController {
         return "main";
     }
 
+    @Autowired
+    JdbcTemplate jdbcTemplate;
+
     @PostMapping("/")
     public String request_deep(
             @RequestParam("_search")String search_Str,
@@ -55,6 +60,9 @@ public class WebController {
             ,Model model
             , HttpServletResponse response
             ,HttpServletRequest request) throws IOException, ParseException {
+
+        //사람들 키워드 데이터 저장
+        jdbcTemplate.execute("INSERT INTO str_log VALUES ('"+search_Str+"')");
 
         //아무 문자도 입력하지 않았을때,
         if (search_Str.isEmpty()|| search_Str.equals("")){
